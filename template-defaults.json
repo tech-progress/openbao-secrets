@@ -1,0 +1,8 @@
+{
+  "OpenBao": {
+    "PORT": "8080",
+    "BAO_API_ADDR": "https://${{OpenBao.RAILWAY_PUBLIC_DOMAIN}}",
+    "OPERATOR_GATE_KEY": "${{secret(48)}}",
+    "PUBLIC_DATA_PLANE": "false"
+  }
+}

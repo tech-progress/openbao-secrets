@@ -1,0 +1,8 @@
+{
+  "OpenBao": {
+    "PORT": "Only the gateway port is public; backend and cluster listeners stay loopback-only.",
+    "BAO_API_ADDR": "Stable HTTPS origin of the gateway; local HTTP is accepted only for loopback tests.",
+    "OPERATOR_GATE_KEY": "Random gateway operator key, at least 32 ASCII characters. NOT an OpenBao token or unseal share.",
+    "PUBLIC_DATA_PLANE": "false keeps every API operator-gated. true allows only secret/transit paths and AppRole login; native OpenBao authorization still applies."
+  }
+}

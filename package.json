@@ -1,0 +1,7 @@
+{
+  "name": "railway-openbao-secrets-template",
+  "private": true,
+  "type": "module",
+  "scripts": {"verify": "./scripts/verify.sh", "smoke": "./scripts/smoke.sh"},
+  "devDependencies": {"railway": "3.6.0"}
+}

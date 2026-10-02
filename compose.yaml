@@ -1,0 +1,22 @@
+services:
+  openbao:
+    build: .
+    environment:
+      PORT: "8080"
+      BAO_API_ADDR: ${BAO_API_ADDR:?Set a stable HTTPS origin or loopback test origin}
+      OPERATOR_GATE_KEY: ${OPERATOR_GATE_KEY:?Generate an operator gateway key of at least 32 characters}
+      PUBLIC_DATA_PLANE: ${PUBLIC_DATA_PLANE:-false}
+    ports:
+      - "127.0.0.1:18422:8080"
+    volumes:
+      - data:/data
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/healthz', timeout=3)"]
+      interval: 2s
+      timeout: 5s
+      retries: 60
+    stop_grace_period: 30s
+volumes:
+  data:
